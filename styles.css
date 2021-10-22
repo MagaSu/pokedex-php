@@ -77,9 +77,12 @@ li {
 
 #search-section {
   margin-bottom: 3%;
+  display: flex;
+  justify-content: center;
 }
-/* .search-form {
-} */
+.search-form {
+  display: flex;
+}
 #input {
   text-align: center;
   padding: 0.5%;

@@ -54,11 +54,8 @@
     $moves = $response_data->moves;
     array_splice($moves, 4)
 
-
-    // $img =
-    // $response_data->sprites->other->dream_world->front_default == null
-    //   ? $response_data->sprites->other->["official-artwork"]->front_default
-    //   : $response_data->sprites->other->dream_world->front_default
+    // Doesn't work
+    // $img = ($response_data->sprites->other->dream_world->front_default == '') ? $response_data->sprites->other->["official-artwork"]->front_default : $response_data->sprites->other->dream_world->front_default
 
   ?>
   <body>
@@ -81,12 +78,21 @@
           <h1 class="intro-title">Pokedex</h1>
         </div>
         <div id="search-section">
-          <form class="search-form" action="" method="GET">
-          <button id="previous" type="button" class="btn">Previous</button>
+          <a href="?searchValue=<?php
+          if ($id == 1){
+            echo '898';
+          } else {
+            echo $id - 1;
+          } ?>"><button id="previous" class="btn">Previous</button></a> 
+          <form class="search-form" method="GET">
             <input id="input" name="searchValue" placeholder="Search Pokemon" type="text" />
             <button id="search" type="submit" class="btn">Search</button>
-            <button id="next" type="button" class="btn">Next</button>
           </form>
+          <a href="?searchValue=<?php
+          if ($id == 898) {echo '1';
+          } else {
+            echo $id + 1;}
+            ?>"><button id="next" class="btn">Next</button></a>
         </div>
         <!-- <div id="loading-animation" class="lds-hourglass"></div> -->
         <div id="pokemon-display">
